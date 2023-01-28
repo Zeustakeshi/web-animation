@@ -11,7 +11,7 @@
             "value": "#3b82f6"
         },
         "shape": {
-            "type": "triangle",
+            "type": "polygon",
             "stroke": {
                 "width": 1,
                 "color": "#3b82f6"
@@ -20,9 +20,9 @@
                 "nb_sides": 10
             },
             "image": {
-                "src": "img/github.svg",
-                "width": 100,
-                "height": 100
+                "src": "assets/ghost.png",
+                "width": 90,
+                "height": 900
             }
         },
         "opacity": {

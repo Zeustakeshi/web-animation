@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: arial;
+}
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-filter: url("#goo");
+    filter: url("#goo");
+}
+
+footer,
+article {
+    font-family: monospace;
+    width: 100%;
+    color: black;
+    font-size: 15px;
+    text-shadow: 1px 1px 1px #737373;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: right;
+    height: 30px;
+    line-height: 30px;
+    padding-right: 20px;
+}
+article {
+    width: 50%;
+    max-width: 350px;
+    font-size: 15px;
+    color: white;
+    padding: 20px;
+}
+svg {
+    display: none;
+}
