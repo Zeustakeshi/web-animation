@@ -5,7 +5,7 @@ import Ghost from "./Ghost.js";
 
 class Animation {
     constructor() {
-        this.canvas = document.getElementById("canvas");
+        this.canvas = document.getElementById("canvas-animation");
         this.canvasWidth = this.canvas.width = window.innerWidth;
         this.canvasHeight = this.canvas.height = window.innerHeight;
         this.ctx = this.canvas.getContext("2d");
@@ -32,14 +32,21 @@ class Animation {
 
     initParticle() {
         this.particles = [];
+        const types = Config.particle.type.type;
         for (let i = 0; i < this.numberOfParticles; ++i) {
-            const type = Math.floor(Math.random() * 3 + 1);
-            if (type == 2) {
-                this.particles.push(new DragonBall(this));
-            } else if (type == 3) {
-                this.particles.push(new Ghost(this));
-            } else {
-                this.particles.push(new Bat(this));
+            const type = types[Math.floor(Math.random() * types.length)];
+            switch (type) {
+                case "bat":
+                    this.particles.push(new Bat(this));
+                    break;
+                case "dragonBall":
+                    this.particles.push(new DragonBall(this));
+                    break;
+                case "ghost":
+                    this.particles.push(new Ghost(this));
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -112,5 +119,11 @@ class Animation {
 }
 
 window.addEventListener("load", () => {
+    const body = document.body;
+    const canvas = document.createElement("canvas");
+    canvas.setAttribute("id", "canvas-animation");
+    body.appendChild(canvas);
+    canvas.style = canvas.style.cssText =
+        "position: absolute; top: 0; left: 0; z-index: 100;width: 100%;height: 100%;pointer-events: none;";
     const animation = new Animation();
 });

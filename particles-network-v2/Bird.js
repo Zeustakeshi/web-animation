@@ -1,4 +1,5 @@
 import Config from "./config.js";
+
 export default class Bird {
     constructor() {
         this.spriteWidth = 100;
